@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Fff";
+  src: url("/fonts/fff-main.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Papercut";
+  src: url("/fonts/papercut.ttf");
+  font-weight: 400;
+}
