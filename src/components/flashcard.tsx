@@ -17,12 +17,12 @@ export default function Flashcard({
   });
 
   function flip() {
-    card.current
-      ? (card.current.style.backgroundColor = context.background)
-      : "";
     context.text == front
       ? setContext({ text: back, background: "rgb(63 50 187)" })
       : setContext({ text: front, background: "transparent" });
+    card.current
+      ? (card.current.style.backgroundColor = context.background)
+      : "";
   }
 
   return (
