@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { cn } from "../libs/utils";
+import { cn, _ref } from "../libs/utils";
 
 export default function Flashcard({
   front,
@@ -11,18 +11,17 @@ export default function Flashcard({
   className?: string;
 }) {
   const card = useRef<HTMLDivElement>(null);
-  const [context, setContext] = useState({
-    text: front,
-    background: "transparent",
-  });
+  const [context, setContext] = useState(front);
 
   function flip() {
-    context.text == front
-      ? setContext({ text: back, background: "rgb(63 50 187)" })
-      : setContext({ text: front, background: "transparent" });
-    card.current
-      ? (card.current.style.backgroundColor = context.background)
-      : "";
+    // _ref(card).style.transform = "rotateY(180deg)";
+    context == front
+      ? (setContext(back),
+        (_ref(card).style.backgroundColor = "rgb(63 50 187)"))
+      : (setContext(front), (_ref(card).style.backgroundColor = "transparent"));
+    // setTimeout(() => {
+    //   setContext(back);
+    // }, 400);
   }
 
   return (
@@ -31,12 +30,12 @@ export default function Flashcard({
         ref={card}
         id="test"
         className={cn(
-          "m-5 w-[300px] flex justify-center items-center h-[300px] p-5 border-4 cursor-pointer hover:translate-y-1 transition-all",
+          "m-5 w-[300px] rounded-lg flex justify-center items-center h-[300px] p-5 border-4 cursor-pointer hover:translate-y-1 transition-all",
           className
         )}
         onClick={flip}
       >
-        {context.text}
+        {context}
       </div>
     </>
   );
