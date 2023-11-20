@@ -4,11 +4,11 @@ import { cn } from "../libs/utils";
 export default function Flashcard({
   front,
   back,
-  className,
+  className = "",
 }: {
   front: string;
   back: string;
-  className: string;
+  className?: string;
 }) {
   const card = useRef<HTMLDivElement>(null);
   const [context, setContext] = useState({
