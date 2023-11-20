@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { cn } from "../libs/utils";
 
 export default function Flashcard({
   front,
@@ -7,6 +8,7 @@ export default function Flashcard({
 }: {
   front: string;
   back: string;
+  className: string;
 }) {
   const card = useRef<HTMLDivElement>(null);
   const [context, setContext] = useState({
@@ -28,8 +30,10 @@ export default function Flashcard({
       <div
         ref={card}
         id="test"
-        className="m-5 w-[300px] flex justify-center items-center 
-        h-[300px] p-5 border-4 cursor-pointer hover:translate-y-1 transition-all"
+        className={cn(
+          "m-5 w-[300px] flex justify-center items-center h-[300px] p-5 border-4 cursor-pointer hover:translate-y-1 transition-all",
+          className
+        )}
         onClick={flip}
       >
         {context.text}
