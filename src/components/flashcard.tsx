@@ -18,7 +18,7 @@ export default function Flashcard({
     context == front
       ? (setContext(back),
         (_ref(card).style.backgroundColor = "rgb(63 50 187)"))
-      : (setContext(front), (_ref(card).style.backgroundColor = "transparent"));
+      : (setContext(front), (_ref(card).style.backgroundColor = "#111"));
     // setTimeout(() => {
     //   setContext(back);
     // }, 400);
@@ -30,7 +30,7 @@ export default function Flashcard({
         ref={card}
         id="test"
         className={cn(
-          "m-5 w-[300px] rounded-lg flex justify-center items-center h-[300px] p-5 border-4 cursor-pointer hover:translate-y-1 transition-all",
+          "mx-auto my-5 rounded-lg w-[calc(100%_-_300px)] bg-[#111] min-w-[300px] text-center flex justify-center items-center h-[300px] p-5 border-4 cursor-pointer hover:translate-y-1 transition-all",
           className
         )}
         onClick={flip}
